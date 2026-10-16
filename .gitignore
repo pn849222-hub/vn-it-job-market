@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+
+# The collected postings are not republished here: this repo ships the code that
+# builds the dataset and the aggregate findings, not ITviec's listings. Run the
+# pipeline to produce data/ locally.
+data/raw/
+data/processed/
+outputs/fetch.log
