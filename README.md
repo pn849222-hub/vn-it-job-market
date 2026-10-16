@@ -18,10 +18,10 @@ See [outputs/findings.md](outputs/findings.md) for the full report with charts.
 
 | | Finding |
 |---|---|
-| 1 | Roughly **two thirds of postings never name a salary**, replacing the figure with a slogan such as "You'll love it" |
-| 2 | **English is requested more often than any single technology** — it is a requirement, not a bonus |
-| 3 | The market is concentrated in **Ho Chi Minh City**, with Hanoi second and everywhere else marginal |
-| 4 | Among postings that do publish a range, senior roles advertise several times what junior roles do |
+| 1 | **489 of 672 postings (73%) never name a salary**, replacing the figure with a slogan such as "You'll love it" |
+| 2 | **English is requested more often than any single technology** — 190 postings, against 133 for Python. It is a requirement, not a bonus |
+| 3 | The market is concentrated in **Ho Chi Minh City** (403 postings), with Hanoi second (236) and everywhere else marginal |
+| 4 | Among postings that publish a range, pay runs from **$193–213/month** for interns to **$2,065–3,341** for lead roles |
 
 ![Most requested technologies](outputs/top_skills.png)
 
