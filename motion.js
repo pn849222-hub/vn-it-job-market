@@ -54,6 +54,23 @@
       window.scrollTo({ top: top + p * (section.offsetHeight - window.innerHeight), behavior: 'auto' });
     });
   });
+  // In-page links (Pipeline, Work) scroll to their section without writing #section into the
+  // address bar. A link opened from elsewhere with a hash still lands on its section, and the
+  // hash is cleared once the page has loaded.
+  document.addEventListener('click', function (event) {
+    var link = event.target.closest && event.target.closest('a[href^="#"]');
+    if (!link || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    var target = document.getElementById(link.getAttribute('href').slice(1));
+    if (!target) return;
+    event.preventDefault();
+    target.scrollIntoView({ behavior: still.matches ? 'auto' : 'smooth', block: 'start' });
+    if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
+    target.focus({ preventScroll: true });          // Tab continues from the section, not the link
+  });
+  window.addEventListener('load', function () {
+    if (window.location.hash) window.history.replaceState(null, '', window.location.pathname + window.location.search);
+  });
+
   window.addEventListener('scroll', queue, { passive: true });
   window.addEventListener('resize', queue);
   if (still.addEventListener) still.addEventListener('change', queue);
