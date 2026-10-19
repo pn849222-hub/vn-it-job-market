@@ -3,6 +3,8 @@
 What Vietnamese employers actually ask for in IT job postings — collected,
 cleaned, and analyzed end to end.
 
+**[See the live case study →](https://pn849222-hub.github.io/vn-it-job-market/)**
+
 Unlike a Kaggle download, this dataset did not exist before: it is built from
 live job postings, which means the messy parts (missing salaries, mislabelled
 currencies, tags that are not skills) had to be handled rather than assumed away.
