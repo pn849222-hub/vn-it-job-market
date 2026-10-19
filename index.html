@@ -8,287 +8,264 @@
   <link rel="icon" href="https://pn849222-hub.github.io/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
   <style>
     :root {
-      --paper: #ffffff;
+      --yellow: #ffe14d;
       --ink: #000000;
-      --graphite: #5c5c5c;
-      --link: #1846c8;
-      --marker: #ffe14d;
-      --frame: #cfcfcf;
+      --paper: #ffffff;
+      --graphite: #4a4a4a;
       --font: "Be Vietnam Pro", system-ui, sans-serif;
       --mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+      --page: 0;
     }
     * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      background: var(--paper);
-      color: var(--ink);
-      font: 400 17px/1.6 var(--font);
-      -webkit-text-size-adjust: 100%;
-    }
-    .page { max-width: 752px; margin: 0 auto; padding: 24px 16px 64px; }
-    a { color: var(--link); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
-    a:hover { text-decoration-thickness: 2px; }
-    a:focus-visible, summary:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 400 18px/1.65 var(--font); overflow-x: clip; }
+    a { color: inherit; text-decoration-thickness: 3px; text-underline-offset: 4px; text-decoration-color: var(--yellow); }
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+    .read { max-width: 68ch; }
+    :focus-visible { outline: 3px solid var(--ink); outline-offset: 4px; }
 
-    .top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; font-size: 15px; }
-    h1, h2, h3 { font-weight: 600; margin: 0; }
-    h1 { font-size: 34px; line-height: 1.15; letter-spacing: -0.01em; margin-top: 48px; }
-    h2 { font-size: 22px; line-height: 1.3; margin: 64px 0 12px; }
-    h3 { font-size: 19px; line-height: 1.35; margin: 32px 0 8px; }
-    p { margin: 0 0 12px; }
-    .lede { margin-top: 16px; }
-    ul { padding-left: 20px; margin: 0 0 12px; }
-    li { margin: 8px 0; }
+    .progress { position: fixed; top: 0; left: 0; right: 0; height: 6px; background: var(--ink); transform-origin: 0 50%; transform: scaleX(var(--page)); z-index: 50; }
 
-    figure { margin: 16px 0; }
-    figcaption { margin-top: 8px; color: var(--graphite); font-size: 14px; }
+    .hero { background: var(--yellow); padding: 28px 0 88px; }
+    .top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; font-weight: 700; font-size: 16px; }
+    .top a { text-decoration: none; border-bottom: 2px solid; }
+    h1 { margin: 72px 0 0; font-weight: 900; font-size: clamp(48px, 8vw, 104px); line-height: .92; letter-spacing: -.045em; max-width: 13ch; }
+    .lede { margin: 28px 0 0; font-size: 21px; line-height: 1.5; max-width: 46ch; }
+
+    .facts { list-style: none; margin: -40px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .facts li { background: var(--paper); border: 3px solid var(--ink); box-shadow: 10px 10px 0 var(--ink); padding: 18px 20px; font-size: 18px; line-height: 1.45; }
+    .facts b { font-weight: 800; }
+
+    h2 { margin: 104px 0 16px; font-weight: 900; font-size: clamp(34px, 4.6vw, 56px); line-height: .98; letter-spacing: -.035em; max-width: 18ch; }
+    h3 { margin: 44px 0 8px; font-weight: 800; font-size: 24px; line-height: 1.2; }
+    p { margin: 0 0 14px; }
+    ul.plain { padding-left: 20px; margin: 0; }
+    ul.plain li { margin: 8px 0; }
+    code { font-family: var(--mono); font-size: .86em; }
+
+    figure { margin: 28px 0 0; }
     figure a { display: block; }
-    img { display: block; width: 100%; height: auto; border: 1px solid var(--frame); }
-    pre { margin: 0; padding: 16px 18px; border: 1px solid var(--frame); overflow-x: auto; font: 14px/1.6 var(--mono); }
-    code { font-family: var(--mono); font-size: 0.88em; }
+    figure img { display: block; width: 100%; height: auto; border: 3px solid var(--ink); box-shadow: 14px 14px 0 var(--yellow); background: var(--paper); }
+    figcaption { margin-top: 22px; color: var(--graphite); font-size: 15px; }
+    pre { margin: 0; padding: 24px 26px; border: 3px solid var(--ink); box-shadow: 14px 14px 0 var(--yellow); overflow-x: auto; font: 16px/1.7 var(--mono); background: var(--paper); }
     pre code { font-size: inherit; }
-    mark { background: var(--marker); color: var(--ink); padding: 1px 2px; }
+    mark { color: var(--ink); background: var(--yellow); padding: 2px 3px; }
 
-    details { margin: 8px 0 0; }
-    summary { cursor: pointer; color: var(--link); font-size: 15px; }
-    .table-scroll { overflow-x: auto; margin-top: 8px; }
-    table { border-collapse: collapse; min-width: 100%; font-size: 15px; }
-    th, td { text-align: left; padding: 6px 16px 6px 0; border-bottom: 1px solid var(--frame); white-space: nowrap; }
-    th { font-weight: 600; }
-    td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
+    details { margin-top: 22px; }
+    summary { cursor: pointer; font-weight: 800; }
+    summary:focus-visible { outline: 3px solid var(--ink); outline-offset: 4px; }
+    .table-scroll { overflow-x: auto; margin-top: 12px; border: 3px solid var(--ink); }
+    table { border-collapse: collapse; min-width: 100%; font: 15px/1.4 var(--mono); }
+    th, td { text-align: left; padding: 8px 14px; border-bottom: 1px solid #d9d9d9; white-space: nowrap; }
+    th { background: var(--ink); color: var(--yellow); }
+    td.n, th.n { text-align: right; }
 
-    footer { margin-top: 72px; color: var(--graphite); font-size: 14px; }
-    @media (max-width: 600px) {
-      body { font-size: 16px; }
-      h1 { font-size: 28px; margin-top: 36px; }
-      h2 { margin-top: 52px; }
-      pre { padding: 12px; font-size: 12.5px; }
+    .foot { background: var(--ink); color: var(--paper); margin-top: 120px; padding: 72px 0 88px; font-size: 16px; }
+    .foot p { margin: 0 0 10px; max-width: 70ch; }
+    .foot a { color: var(--paper); }
+    .foot .quiet { color: #bdbdbd; }
+
+    /* The highlighter draws across the JSON as it crosses the viewport. */
+    .js-motion mark { background: linear-gradient(var(--yellow), var(--yellow)) no-repeat 0 0 / var(--draw, 100%) 100%; }
+    .js-motion .m1 { --draw: calc(clamp(0, (var(--p, 1) - .3) * 6, 1) * 100%); }
+    .js-motion .m2 { --draw: calc(clamp(0, (var(--p, 1) - .42) * 4, 1) * 100%); }
+
+    @media (max-width: 720px) {
+      body { font-size: 17px; }
+      .hero { padding-bottom: 72px; }
+      h1 { margin-top: 48px; }
+      .lede { font-size: 18px; }
+      .facts { grid-template-columns: minmax(0, 1fr); margin-top: -32px; }
+      .facts li { box-shadow: 6px 6px 0 var(--ink); }
+      h2 { margin-top: 80px; }
+      figure img, pre { box-shadow: 8px 8px 0 var(--yellow); }
+      pre { font-size: 12px; padding: 12px; }
+      table { font-size: 13px; }
+    }
+    @media (max-width: 400px) {
+      .wrap { padding: 0 16px; }
+      pre { font-size: 10.5px; padding: 10px; }
     }
   </style>
 </head>
 <body>
-  <div class="page">
-    <nav class="top" aria-label="Links">
-      <a href="https://pn849222-hub.github.io/" lang="vi">Nguyễn Vũ Trường Phúc</a>
-      <a href="https://github.com/pn849222-hub/vn-it-job-market">Source code on GitHub</a>
-    </nav>
+  <div class="progress" aria-hidden="true"></div>
 
-    <header>
+  <header class="hero">
+    <div class="wrap">
+      <nav class="top" aria-label="Links">
+        <a href="https://pn849222-hub.github.io/" lang="vi">Nguyễn Vũ Trường Phúc</a>
+        <a href="https://github.com/pn849222-hub/vn-it-job-market">Source code on GitHub</a>
+      </nav>
       <h1>What Vietnamese IT employers ask for</h1>
-      <p class="lede">
-        On 16 October 2026 I collected 672 live job postings from 320 companies through
-        ITviec's public sitemap, cleaned them into SQLite and queried them. Every number on
-        this page comes from a SQL query in the repository. Four things stood out:
-      </p>
-      <ul>
-        <li>73% of postings never name a salary.</li>
-        <li>English is listed on 190 postings, more than Python (133), the most requested technology.</li>
-        <li>60% of postings are in Ho Chi Minh City.</li>
-        <li>Advertised pay runs from about $200 a month for interns to $2,065–3,341 for lead roles.</li>
-      </ul>
-    </header>
+      <p class="lede">On 16 October 2026 I collected 672 live job postings from 320 companies through ITviec's public sitemap, cleaned them into SQLite and queried them. Every number on this page comes from a SQL query in the repository.</p>
+    </div>
+  </header>
 
-    <main>
-      <section aria-labelledby="salary">
-        <h2 id="salary">Most postings never say what they pay</h2>
-        <p>
-          Only 183 of 672 postings publish a figure. The other 489 replace it with a slogan such
-          as <em>"You'll love it"</em>, so a candidate cannot compare offers before applying.
-          Every salary figure below describes the minority of employers willing to post one,
-          not the market as a whole.
-        </p>
-      </section>
+  <main class="wrap">
+    <ul class="facts" aria-label="Four things that stood out">
+      <li><b>73% of postings never name a salary.</b> 489 of 672.</li>
+      <li><b>English is listed more than any technology:</b> 190 postings, against 133 for Python.</li>
+      <li><b>60% of postings are in Ho Chi Minh City.</b> Hanoi has most of the rest.</li>
+      <li><b>Advertised pay runs from about $200 a month</b> for interns to $2,065–3,341 for lead roles.</li>
+    </ul>
 
-      <section aria-labelledby="english">
-        <h2 id="english">English is listed more often than any technology</h2>
-        <p>
-          English is a listed skill on 190 postings (28%). Python, the most requested
-          technology, appears on 133. Languages are counted apart from technologies below,
-          otherwise the answer to "what is most in demand" would simply be English.
-        </p>
-      </section>
+    <section aria-labelledby="salary" class="read">
+      <h2 id="salary">Most postings never say what they pay</h2>
+      <p>Only 183 of 672 postings publish a figure. The other 489 replace it with a slogan such as <em>"You'll love it"</em>, so a candidate cannot compare offers before applying. Every salary figure below describes the minority of employers willing to post one, not the market as a whole.</p>
+    </section>
 
-      <section aria-labelledby="skills">
-        <h2 id="skills">What employers ask for</h2>
-        <figure>
-          <a href="outputs/top_skills.png" aria-label="Open the chart at full size">
-            <img src="outputs/top_skills.png" width="1290" height="1260" loading="lazy"
-                 alt="Horizontal bar chart of the most requested technologies. Python leads with 133 postings, then AI with 119 and SQL with 115.">
-          </a>
-          <figcaption>Postings naming each technology. Select a chart to open it at full size. Tags like "Fresher Accepted" are left out because they say who may apply, not what the job needs.</figcaption>
-        </figure>
-        <details>
-          <summary>Show the numbers</summary>
-          <div class="table-scroll">
-            <table>
-              <thead><tr><th>Skill</th><th class="n">Postings</th><th class="n">Share</th></tr></thead>
-              <tbody>
-                <tr><td>Python</td><td class="n">133</td><td class="n">19.8%</td></tr>
-                <tr><td>AI</td><td class="n">119</td><td class="n">17.7%</td></tr>
-                <tr><td>SQL</td><td class="n">115</td><td class="n">17.1%</td></tr>
-                <tr><td>Java</td><td class="n">99</td><td class="n">14.7%</td></tr>
-                <tr><td>AWS</td><td class="n">81</td><td class="n">12.1%</td></tr>
-                <tr><td>DevOps</td><td class="n">64</td><td class="n">9.5%</td></tr>
-                <tr><td>Business Analysis</td><td class="n">61</td><td class="n">9.1%</td></tr>
-                <tr><td>Agile</td><td class="n">60</td><td class="n">8.9%</td></tr>
-                <tr><td>Cloud</td><td class="n">59</td><td class="n">8.8%</td></tr>
-                <tr><td>CI/CD</td><td class="n">55</td><td class="n">8.2%</td></tr>
-                <tr><td>JavaScript</td><td class="n">52</td><td class="n">7.7%</td></tr>
-                <tr><td>API</td><td class="n">47</td><td class="n">7.0%</td></tr>
-                <tr><td>QA/QC</td><td class="n">47</td><td class="n">7.0%</td></tr>
-                <tr><td>React</td><td class="n">47</td><td class="n">7.0%</td></tr>
-                <tr><td>TypeScript</td><td class="n">45</td><td class="n">6.7%</td></tr>
-                <tr><td>Docker</td><td class="n">43</td><td class="n">6.4%</td></tr>
-                <tr><td>Go</td><td class="n">41</td><td class="n">6.1%</td></tr>
-                <tr><td>Project Management</td><td class="n">41</td><td class="n">6.1%</td></tr>
-                <tr><td>C++</td><td class="n">40</td><td class="n">6.0%</td></tr>
-                <tr><td>Kubernetes</td><td class="n">40</td><td class="n">6.0%</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </details>
-      </section>
+    <section aria-labelledby="english" class="read">
+      <h2 id="english">English is listed more often than any technology</h2>
+      <p>English is a listed skill on 190 postings (28%). Python, the most requested technology, appears on 133. Languages are counted apart from technologies below, otherwise the answer to "what is most in demand" would simply be English.</p>
+    </section>
 
-      <section aria-labelledby="cities">
-        <h2 id="cities">One city holds most of the market</h2>
-        <p>Ho Chi Minh City has 403 of 672 postings. Hanoi is second with 236, and everywhere else is marginal.</p>
-        <figure>
-          <a href="outputs/by_city.png" aria-label="Open the chart at full size">
-            <img src="outputs/by_city.png" width="1290" height="495" loading="lazy"
-                 alt="Bar chart of postings by city: Ho Chi Minh City 403, Hanoi 236, Da Nang 23, not stated 8, other cities 2.">
-          </a>
-        </figure>
-        <details>
-          <summary>Show the numbers</summary>
-          <div class="table-scroll">
-            <table>
-              <thead><tr><th>City</th><th class="n">Postings</th></tr></thead>
-              <tbody>
-                <tr><td>Ho Chi Minh City</td><td class="n">403</td></tr>
-                <tr><td>Hanoi</td><td class="n">236</td></tr>
-                <tr><td>Da Nang</td><td class="n">23</td></tr>
-                <tr><td>Not stated</td><td class="n">8</td></tr>
-                <tr><td>Other cities</td><td class="n">2</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </details>
-      </section>
+    <section aria-labelledby="skills">
+      <h2 id="skills">What employers ask for</h2>
+      <figure>
+        <a href="outputs/top_skills.png" aria-label="Open the chart at full size">
+          <img src="outputs/top_skills.png" width="1290" height="1260" loading="lazy" alt="Horizontal bar chart of the most requested technologies. Python leads with 133 postings, then AI with 119 and SQL with 115.">
+        </a>
+        <figcaption>Postings naming each technology. Select a chart to open it at full size. Tags like "Fresher Accepted" are left out because they say who may apply, not what the job needs.</figcaption>
+      </figure>
+      <details>
+        <summary>Show the numbers</summary>
+        <div class="table-scroll">
+          <table>
+            <thead><tr><th>Skill</th><th class="n">Postings</th><th class="n">Share</th></tr></thead>
+            <tbody>
+              <tr><td>Python</td><td class="n">133</td><td class="n">19.8%</td></tr>
+              <tr><td>AI</td><td class="n">119</td><td class="n">17.7%</td></tr>
+              <tr><td>SQL</td><td class="n">115</td><td class="n">17.1%</td></tr>
+              <tr><td>Java</td><td class="n">99</td><td class="n">14.7%</td></tr>
+              <tr><td>AWS</td><td class="n">81</td><td class="n">12.1%</td></tr>
+              <tr><td>DevOps</td><td class="n">64</td><td class="n">9.5%</td></tr>
+              <tr><td>Business Analysis</td><td class="n">61</td><td class="n">9.1%</td></tr>
+              <tr><td>Agile</td><td class="n">60</td><td class="n">8.9%</td></tr>
+              <tr><td>Cloud</td><td class="n">59</td><td class="n">8.8%</td></tr>
+              <tr><td>CI/CD</td><td class="n">55</td><td class="n">8.2%</td></tr>
+              <tr><td>JavaScript</td><td class="n">52</td><td class="n">7.7%</td></tr>
+              <tr><td>API</td><td class="n">47</td><td class="n">7.0%</td></tr>
+              <tr><td>QA/QC</td><td class="n">47</td><td class="n">7.0%</td></tr>
+              <tr><td>React</td><td class="n">47</td><td class="n">7.0%</td></tr>
+              <tr><td>TypeScript</td><td class="n">45</td><td class="n">6.7%</td></tr>
+              <tr><td>Docker</td><td class="n">43</td><td class="n">6.4%</td></tr>
+              <tr><td>Go</td><td class="n">41</td><td class="n">6.1%</td></tr>
+              <tr><td>Project Management</td><td class="n">41</td><td class="n">6.1%</td></tr>
+              <tr><td>C++</td><td class="n">40</td><td class="n">6.0%</td></tr>
+              <tr><td>Kubernetes</td><td class="n">40</td><td class="n">6.0%</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+    </section>
 
-      <section aria-labelledby="pay">
-        <h2 id="pay">Who is hired, and for how much</h2>
-        <p>
-          Among postings that publish a range, pay runs from $193–213 a month for interns to
-          $2,065–3,341 for lead roles. Groups with fewer than five published ranges are left
-          out rather than averaged from two or three postings.
-        </p>
-        <figure>
-          <a href="outputs/by_seniority.png" aria-label="Open the chart at full size">
-            <img src="outputs/by_seniority.png" width="1290" height="597" loading="lazy"
-                 alt="Bar chart of postings by seniority, read from the job title.">
-          </a>
-          <figcaption>Seniority is read from the job title, so vaguely titled postings land in "Unspecified".</figcaption>
-        </figure>
-        <figure>
-          <a href="outputs/salary_by_seniority.png" aria-label="Open the chart at full size">
-            <img src="outputs/salary_by_seniority.png" width="1290" height="870" loading="lazy"
-                 alt="Advertised monthly salary by seniority, average floor to average ceiling in US dollars. Lead or principal 2,065 to 3,341; manager or head 1,916 to 2,916; senior 1,359 to 2,184; unspecified 1,105 to 1,798; middle 695 to 1,450; intern or fresher 193 to 213.">
-          </a>
-        </figure>
-        <details>
-          <summary>Show the numbers</summary>
-          <div class="table-scroll">
-            <table>
-              <thead><tr><th>Seniority</th><th class="n">Postings</th><th class="n">Avg floor</th><th class="n">Avg ceiling</th></tr></thead>
-              <tbody>
-                <tr><td>Lead/Principal</td><td class="n">22</td><td class="n">$2,065</td><td class="n">$3,341</td></tr>
-                <tr><td>Manager/Head</td><td class="n">15</td><td class="n">$1,916</td><td class="n">$2,916</td></tr>
-                <tr><td>Senior</td><td class="n">53</td><td class="n">$1,359</td><td class="n">$2,184</td></tr>
-                <tr><td>Unspecified</td><td class="n">72</td><td class="n">$1,105</td><td class="n">$1,798</td></tr>
-                <tr><td>Middle</td><td class="n">8</td><td class="n">$695</td><td class="n">$1,450</td></tr>
-                <tr><td>Intern/Fresher</td><td class="n">10</td><td class="n">$193</td><td class="n">$213</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </details>
-      </section>
+    <section aria-labelledby="cities">
+      <h2 id="cities">One city holds most of the market</h2>
+      <p class="read">Ho Chi Minh City has 403 of 672 postings. Hanoi is second with 236, and everywhere else is marginal.</p>
+      <figure>
+        <a href="outputs/by_city.png" aria-label="Open the chart at full size">
+          <img src="outputs/by_city.png" width="1290" height="495" loading="lazy" alt="Bar chart of postings by city: Ho Chi Minh City 403, Hanoi 236, Da Nang 23, not stated 8, other cities 2.">
+        </a>
+      </figure>
+      <details>
+        <summary>Show the numbers</summary>
+        <div class="table-scroll">
+          <table>
+            <thead><tr><th>City</th><th class="n">Postings</th></tr></thead>
+            <tbody>
+              <tr><td>Ho Chi Minh City</td><td class="n">403</td></tr>
+              <tr><td>Hanoi</td><td class="n">236</td></tr>
+              <tr><td>Da Nang</td><td class="n">23</td></tr>
+              <tr><td>Not stated</td><td class="n">8</td></tr>
+              <tr><td>Other cities</td><td class="n">2</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+    </section>
 
-      <section aria-labelledby="build">
-        <h2 id="build">How the data was collected and cleaned</h2>
-        <p>
-          The job listing pages render in JavaScript, so there is nothing to parse in their
-          HTML. Each job page does embed a schema.org <code>JobPosting</code> block for search
-          engines, and the site publishes a sitemap of those pages. The collector checks
-          <code>robots.txt</code> first, makes one request every 1.5 seconds, and can resume
-          after an interruption. Four problems turned up in the data.
-        </p>
+    <section aria-labelledby="pay">
+      <h2 id="pay">Who is hired, and for how much</h2>
+      <p class="read">Among postings that publish a range, pay runs from $193–213 a month for interns to $2,065–3,341 for lead roles. Groups with fewer than five published ranges are left out rather than averaged from two or three postings.</p>
+      <figure>
+        <a href="outputs/by_seniority.png" aria-label="Open the chart at full size">
+          <img src="outputs/by_seniority.png" width="1290" height="597" loading="lazy" alt="Bar chart of postings by seniority, read from the job title.">
+        </a>
+        <figcaption>Seniority is read from the job title, so vaguely titled postings land in "Unspecified".</figcaption>
+      </figure>
+      <figure>
+        <a href="outputs/salary_by_seniority.png" aria-label="Open the chart at full size">
+          <img src="outputs/salary_by_seniority.png" width="1290" height="870" loading="lazy" alt="Advertised monthly salary by seniority, average floor to average ceiling in US dollars. Lead or principal 2,065 to 3,341; manager or head 1,916 to 2,916; senior 1,359 to 2,184; unspecified 1,105 to 1,798; middle 695 to 1,450; intern or fresher 193 to 213.">
+        </a>
+      </figure>
+      <details>
+        <summary>Show the numbers</summary>
+        <div class="table-scroll">
+          <table>
+            <thead><tr><th>Seniority</th><th class="n">Postings</th><th class="n">Avg floor</th><th class="n">Avg ceiling</th></tr></thead>
+            <tbody>
+              <tr><td>Lead/Principal</td><td class="n">22</td><td class="n">$2,065</td><td class="n">$3,341</td></tr>
+              <tr><td>Manager/Head</td><td class="n">15</td><td class="n">$1,916</td><td class="n">$2,916</td></tr>
+              <tr><td>Senior</td><td class="n">53</td><td class="n">$1,359</td><td class="n">$2,184</td></tr>
+              <tr><td>Unspecified</td><td class="n">72</td><td class="n">$1,105</td><td class="n">$1,798</td></tr>
+              <tr><td>Middle</td><td class="n">8</td><td class="n">$695</td><td class="n">$1,450</td></tr>
+              <tr><td>Intern/Fresher</td><td class="n">10</td><td class="n">$193</td><td class="n">$213</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+    </section>
 
-        <h3>The currency field is wrong</h3>
-        <p>
-          Every salary comes labelled as US dollars, including ones whose text is in dong. 24
-          of the 183 published salaries were really in dong:
-        </p>
-        <figure>
+    <section aria-labelledby="build">
+      <h2 id="build">How the data was collected and cleaned</h2>
+      <p class="read">The job listing pages render in JavaScript, so there is nothing to parse in their HTML. Each job page does embed a schema.org <code>JobPosting</code> block for search engines, and the site publishes a sitemap of those pages. The collector checks <code>robots.txt</code> first, makes one request every 1.5 seconds, and can resume after an interruption. Four problems turned up in the data.</p>
+
+      <h3>The currency field is wrong</h3>
+      <p class="read">Every salary comes labelled as US dollars, including ones whose text is in dong. 24 of the 183 published salaries were really in dong:</p>
+      <figure data-scroll="view">
 <pre><code>"baseSalary": {
   "@type": "MonetaryAmount",
-  "currency": "<mark>USD</mark>",
+  "currency": "<mark class="m1">USD</mark>",
   "value": {
     "@type": "QuantitativeValue",
     "unitText": "MONTH",
-    "value": "<mark>14 – 16 million VND/month</mark>"
+    "value": "<mark class="m2">14 – 16 million VND/month</mark>"
   }
 }</code></pre>
-          <figcaption>One real posting, as the job board published it.</figcaption>
-        </figure>
-        <p>
-          Trusting the label would average 14 (million dong) with 1,500 (dollars), so the
-          currency is read from the text instead.
-        </p>
+        <figcaption>One real posting, as the job board published it.</figcaption>
+      </figure>
+      <p class="read" style="margin-top:20px">Trusting the label would average 14 (million dong) with 1,500 (dollars), so the currency is read from the text instead.</p>
 
-        <h3>Some dong amounts have no unit</h3>
-        <p>
-          A few postings write <code>16.000.000- 21.000.000</code> and nothing else. No job on
-          this board pays tens of thousands of dollars a month, so a figure above a plausibility
-          bound is converted as dong.
-        </p>
+      <h3>Some dong amounts have no unit</h3>
+      <p class="read">A few postings write <code>16.000.000- 21.000.000</code> and nothing else. No job on this board pays tens of thousands of dollars a month, so a figure above a plausibility bound is converted as dong.</p>
 
-        <h3>Not every tag is a skill</h3>
-        <p>
-          <em>Internship Accepted</em> and <em>Fresher Accepted</em> sit in the same field as
-          <em>Kubernetes</em>. They are left out of skill counts, and spellings such as
-          <em>PostgreSql</em> and <em>Postgres</em> are merged.
-        </p>
+      <h3>Not every tag is a skill</h3>
+      <p class="read"><em>Internship Accepted</em> and <em>Fresher Accepted</em> sit in the same field as <em>Kubernetes</em>. They are left out of skill counts, and spellings such as <em>PostgreSql</em> and <em>Postgres</em> are merged.</p>
 
-        <h3>An ID that was not unique</h3>
-        <p>
-          The number at the end of each URL looks like a posting ID, but three unrelated
-          postings share "1922". Keying on it silently dropped about fifty jobs, giving 622
-          instead of 672. The full URL slug is used now.
-        </p>
-      </section>
+      <h3>An ID that was not unique</h3>
+      <p class="read">The number at the end of each URL looks like a posting ID, but three unrelated postings share "1922". Keying on it silently dropped about fifty jobs, giving 622 instead of 672. The full URL slug is used now.</p>
+    </section>
 
-      <section aria-labelledby="limits">
-        <h2 id="limits">Limitations</h2>
-        <ul>
-          <li>One job board, so this describes ITviec's listings rather than every IT vacancy in Vietnam.</li>
-          <li>A snapshot of open postings, not a time series.</li>
-          <li>Salary figures cover only employers who publish one, which biases them toward companies competing openly on pay.</li>
-          <li>Dong is converted at one fixed rate, not the rate on each posting's date.</li>
-        </ul>
-      </section>
-    </main>
+    <section aria-labelledby="limits" class="read">
+      <h2 id="limits">Limitations</h2>
+      <ul class="plain">
+        <li>One job board, so this describes ITviec's listings rather than every IT vacancy in Vietnam.</li>
+        <li>A snapshot of open postings, not a time series.</li>
+        <li>Salary figures cover only employers who publish one, which biases them toward companies competing openly on pay.</li>
+        <li>Dong is converted at one fixed rate, not the rate on each posting's date.</li>
+      </ul>
+    </section>
+  </main>
 
-    <footer>
-      <p>
-        Built by <a href="https://pn849222-hub.github.io/" lang="vi">Nguyễn Vũ Trường Phúc</a>
-        with Python, SQLite, pandas and matplotlib.
-        <a href="https://github.com/pn849222-hub/vn-it-job-market">Source code</a>.
-      </p>
-      <p>The postings belong to ITviec and the employers who wrote them. This page shows aggregate findings only; the collected data is not republished.</p>
-    </footer>
-  </div>
+  <footer class="foot">
+    <div class="wrap">
+      <p>Built by <a href="https://pn849222-hub.github.io/" lang="vi">Nguyễn Vũ Trường Phúc</a> with Python, SQLite, pandas and matplotlib. <a href="https://github.com/pn849222-hub/vn-it-job-market">Source code</a>.</p>
+      <p class="quiet">The postings belong to ITviec and the employers who wrote them. This page shows aggregate findings only; the collected data is not republished.</p>
+    </div>
+  </footer>
+  <script src="motion.js"></script>
 </body>
 </html>
